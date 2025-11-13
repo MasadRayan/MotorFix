@@ -3,6 +3,7 @@ import Banner from "./components/Banner";
 import AboutUs from "./components/AboutUs";
 import ContactInfo from "./components/ContactInfo";
 import WhyChooseUS from "./components/WhyChooseUS";
+import OurTeam from "./components/OurTeam";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Banner></Banner>
       <AboutUs></AboutUs>
       <ContactInfo></ContactInfo>
+      <OurTeam></OurTeam>
       <WhyChooseUS></WhyChooseUS>
     </div>
   );

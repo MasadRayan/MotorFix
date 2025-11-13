@@ -7,7 +7,7 @@ const WhyChooseUS = () => {
             <div className='flex flex-col justify-center items-center gap-5 mb-14'>
                 <p className='font-bold text-[20px] text-[#FF3811]'>Core Features</p>
                 <h2 className='text-3xl md:text-5xl font-bold'>Why Choose Us</h2>
-                <p className='text-base text-center text-[#737373]'>The majority have suffered alteration in some form, by injected humour, or randomised <br /> words which don't look even slightly believable. </p>
+                <p className='text-base text-center text-[#737373]'>Our commitment to quality and customer satisfaction makes us <br /> the preferred choice for car owners everywhere. </p> 
             </div>
             <div className='flex flex-col md:flex-row justify-center items-center gap-5'>
                 <div className='px-5 py-5 shadow-xl border border-[#F3F3F3] rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-[#FF3811] hover:text-white  transition-all duration-300 ease-in-out'>
