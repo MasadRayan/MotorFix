@@ -6,15 +6,15 @@ import { FaSearch, FaShoppingCart } from "react-icons/fa";
 const NavBar = () => {
     const links = (
         <>
-            <li><Link className='hover:text-[#FF3811] font-semibold' href="/">Home</Link></li>
-            <li><Link className='hover:text-[#FF3811] font-semibold' href="/services">About</Link></li>
-            <li><Link className='hover:text-[#FF3811] font-semibold' href="/about">Services</Link></li>
-            <li><Link className='hover:text-[#FF3811] font-semibold' href="/about">Blog</Link></li>
-            <li><Link className='hover:text-[#FF3811] font-semibold' href="/contact">Contact</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/services">About</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/about">Services</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/about">Blog</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/contact">Contact</Link></li>
         </>
     )
     return (
-        <div className='sticky top-0 z-50 bg-transparent backdrop-blur-2xl container mx-auto'>
+        <div className='sticky top-0 z-50 bg-transparent backdrop-blur-2xl '>
             <div className="navbar ">
                 <div className="navbar-start">
                     <div className="dropdown">
