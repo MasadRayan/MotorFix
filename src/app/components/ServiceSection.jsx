@@ -1,12 +1,12 @@
 import { Indent } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-import { FaDollarSign } from 'react-icons/fa';
+import { FaArrowRight  } from 'react-icons/fa';
 
 const ServiceSection = async () => {
     const res = await fetch('http://localhost:5000/api/service')
     const data = await res.json();
-    console.log(data);
 
     return (
         <section className="py-20 bg-white text-center">
@@ -36,14 +36,20 @@ const ServiceSection = async () => {
                             height={300}
                             className="w-full h-56 object-cover"
                         />
-                        <div className="p-5 text-left">
-                            <h3 className="text-lg font-semibold text-gray-800">
-                                {item.title}
-                            </h3>
-                            <p className="text-[#FF3811] font-medium mt-2 flex items-center gap-2">
-                                Price : ${item.price}
-
-                            </p>
+                        <div className='flex items-center justify-between px-4'>
+                            <div className="p-5 text-left">
+                                <h3 className="text-lg font-semibold text-gray-800">
+                                    {item.title}
+                                </h3>
+                                <p className="text-[#FF3811] font-medium mt-2 flex items-center gap-2">
+                                    Price : ${item.price}
+                                </p>
+                            </div>
+                            <div>
+                                <Link href={`/services/${item._id}`}>
+                                    <FaArrowRight></FaArrowRight>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 ))}
