@@ -23,7 +23,7 @@ const AboutUs = () => {
             alt="Car tools"
             width={220}
             height={160}
-            className="rounded-md object-cover"
+            className="rounded-md h-auto w-auto object-cover"
           />
         </div>
       </div>

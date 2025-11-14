@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { FaGoogle, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import image from '../../public/assets/images/checkout/whiteLogo.png'
 import Link from "next/link";
 
 const Footer = () => {
@@ -12,7 +11,7 @@ const Footer = () => {
                 <div>
                     {/* Logo Section */}
                     <div className="flex items-center gap-2 mb-4">
-                        <Image src={image} alt="Vercel Logo" width={80} height={80} className="" />
+                        <Image src='/assets/images/checkout/whiteLogo.png' alt="Vercel Logo" width={80} height={80} className="h-auto w-auto" />
 
                     </div>
                     <p className="text-sm leading-relaxed mb-4">
