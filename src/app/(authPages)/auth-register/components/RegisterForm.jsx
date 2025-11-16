@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-const LoginForm = () => {
+const RegisterForm = () => {
     const router = useRouter();
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        
-    }
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            const name = e.target.name.value;
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+            
+        }
 
     return (
         <div>
@@ -22,6 +23,10 @@ const LoginForm = () => {
                     <div className="card-body">
                         <fieldset className="w-full flex flex-col justify-start  gap-5">
                             <div>
+                                <label className="label">Name</label>
+                                <input type="text" name='name' className="input" placeholder="Name" />
+                            </div>
+                            <div>
                                 <label className="label">Email</label>
                                 <input type="email" name='email' className="input" placeholder="Email" />
                             </div>
@@ -30,16 +35,16 @@ const LoginForm = () => {
                                 <input type="password" name='password' className="input" placeholder="Password" />
                             </div>
                             <div><a className="link link-hover">Forgot password?</a></div>
-                            <button className="btn bg-[#FF3811] text-white mt-4">Login</button>
+                            <button className="btn bg-[#FF3811] text-white mt-4">Register</button>
                         </fieldset>
                     </div>
                 </div>
                 <p className="text-center">Or Sign In with</p>
                 {/* <SocialLogin /> */}
                 <p className="text-center">
-                     Don't Have an account?{" "}
-                    <Link href="/auth-register" className="text-orange-500 font-bold">
-                        Register
+                    Already have an account?{" "}
+                    <Link href="/auth-login" className="text-orange-500 font-bold">
+                        Login
                     </Link>
                 </p>
             </form>
@@ -47,4 +52,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default RegisterForm;
