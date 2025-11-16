@@ -2,6 +2,8 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
+import NextAuthProvider from "@/Providers/NextAuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +31,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} antialiased`}
       >
-        <NavBar></NavBar>
-        {children}
-        <Footer></Footer>
+        <NextAuthProvider>
+          <NavBar></NavBar>
+          <Toaster></Toaster>
+          {children}
+          <Footer></Footer>
+        </NextAuthProvider>
+
       </body>
     </html>
   );

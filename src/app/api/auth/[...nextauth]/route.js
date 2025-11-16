@@ -19,22 +19,23 @@ export const authOptions = {
             async authorize(credentials, req) {
                 const res = await axios.post("http://localhost:5000/api/user/login", credentials);
                 const user = res.data;
-                console.log("From the user chk",user);
-                if (user) {
-                    // Any object returned will be saved in `user` property of the JWT
-                    return user
-                } else {
-                    // If you return null then an error will be displayed advising the user to check their details.
-                    return null
+                console.log("From the user chk", user);
 
-                    // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+                if (user?.message) {
+                    throw new Error(user.message);
                 }
+
+                if (!user) {
+                    throw new Error("Login failed");
+                }
+
+                return user
             }
         })
     ],
     pages: {
         signIn: '/auth-login',
-        
+
     }
 }
 

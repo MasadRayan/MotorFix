@@ -1,4 +1,5 @@
 "use client";
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,6 +8,7 @@ import { FaSearch, FaShoppingCart } from "react-icons/fa";
 
 const NavBar = () => {
     const pathName = usePathname();
+    const { data: session, status } = useSession();
     const links = (
         <>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>
@@ -79,9 +81,24 @@ const NavBar = () => {
                     </div>
                     <div className="navbar-end ">
                         <div className='flex justify-center items-center gap-3'>
-                            <FaShoppingCart size={20} />
-                            <FaSearch size={20} />
-                            <button className='btn btn-outline text-[#FF3811]'>Appointment</button>
+                            {
+                                status == 'authenticated' ? (
+                                    <>
+                                        <button onClick={() => signOut()} className='btn btn-outline text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
+                                            LogOut
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Link href={'/auth-login'}>
+                                            <button className='btn btn-outline text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>Login</button>
+                                        </Link>
+                                        <Link href={'/auth-register'}>
+                                            <button className='btn btn-outline text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>Register</button>
+                                        </Link>
+                                    </>
+                                )
+                            }
                         </div>
 
                     </div>
