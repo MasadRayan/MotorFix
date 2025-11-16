@@ -45,6 +45,17 @@ export const authOptions = {
     ],
     pages: {
         signIn: '/auth-login',
-
+    },
+    callbacks: {
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log({ user, account, profile, email, credentials });
+            if (account) {
+                const {providerAccountId, provider } = account;
+                const {email: user_email, image, name} = user;
+                const userInfo= {email:user_email, image, name, providerAccountId, provider};
+                const res = await axios.post("http://localhost:5000/api/user/social-login", userInfo);
+            }
+            return true
+        },
     }
 }
