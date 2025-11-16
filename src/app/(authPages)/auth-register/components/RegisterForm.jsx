@@ -1,16 +1,25 @@
 "use client";
+import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const RegisterForm = () => {
     const router = useRouter();
-        const handleSubmit = (e) => {
+        const handleSubmit = async (e) => {
             e.preventDefault();
             const name = e.target.name.value;
             const email = e.target.email.value;
             const password = e.target.password.value;
             console.log(name, email, password);
+            const userInfo = { name, email, password };
+            const res = await axios.post("http://localhost:5000/api/user",
+                userInfo
+            );
+            if (res.data.insertedId) {
+                console.log(res.data.insertedId);
+            }
+
             
         }
 
