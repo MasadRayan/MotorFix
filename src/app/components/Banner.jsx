@@ -70,6 +70,7 @@ const Banner = () => {
                                     alt={slide.title}
                                     width={1200}
                                     height={600}
+                                    loading="eager"
                                     className="w-full h-80 md:h-96 lg:h-[550px] object-cover rounded-2xl"
                                 />
                                 <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>

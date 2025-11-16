@@ -11,27 +11,27 @@ const WhyChooseUS = () => {
             </div>
             <div className='flex flex-col md:flex-row justify-center items-center gap-5'>
                 <div className='px-5 py-5 shadow-xl border border-[#F3F3F3] rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-[#FF3811] hover:text-white  transition-all duration-300 ease-in-out'>
-                    <Image src={'/assets/icons/group.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
+                    <Image loading="eager" src={'/assets/icons/group.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
                     <p className='font-bold text-lg'>Expert Team</p>
                 </div>
                 <div className='px-5 py-5 shadow-xl border border-[#F3F3F3] bg-[#FF3811] rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-[#FF3811] hover:text-white  transition-all duration-300 ease-in-out'>
-                    <Image src={'/assets/icons/clock.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
+                    <Image loading="eager" src={'/assets/icons/clock.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
                     <p className='font-bold text-lg'>Timely Delivery</p>
                 </div>
                 <div className='px-5 py-5 shadow-xl border border-[#F3F3F3] rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-[#FF3811] hover:text-white  transition-all duration-300 ease-in-out'>
-                    <Image src={'/assets/icons/person.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
+                    <Image loading="eager" src={'/assets/icons/person.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
                     <p className='font-bold text-lg'>24/7 Support</p>
                 </div>
                 <div className='px-5 py-5 shadow-xl border border-[#F3F3F3] rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-[#FF3811] hover:text-white  transition-all duration-300 ease-in-out'>
-                    <Image src={'/assets/icons/Wrench.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
+                    <Image loading="eager" src={'/assets/icons/Wrench.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
                     <p className='font-bold text-lg'>Best Equipment</p>
                 </div>
                 <div className='px-5 py-5 shadow-xl border border-[#F3F3F3] rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-[#FF3811] hover:text-white  transition-all duration-300 ease-in-out'>
-                    <Image src={'/assets/icons/check.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
+                    <Image loading="eager" src={'/assets/icons/check.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
                     <p className='font-bold text-lg'>100% Guranty</p>
                 </div>
                 <div className='px-5 py-5 shadow-xl border border-[#F3F3F3] rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-[#FF3811] hover:text-white  transition-all duration-300 ease-in-out'>
-                    <Image src={'/assets/icons/deliveryt.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
+                    <Image loading="eager" src={'/assets/icons/deliveryt.svg'} alt='Grouped peoples' width={500} height={500} className="h-10 w-10 rounded-lg object-contain" />
                     <p className='font-bold text-lg'>Timely Delivary</p>
                 </div>
                 

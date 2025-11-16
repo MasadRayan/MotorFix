@@ -2,14 +2,22 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { signIn, signOut } from "next-auth/react"
 
 const LoginForm = () => {
     const router = useRouter();
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        
+        try {
+            await signIn('credentials', { email, password, callbackUrl: '/' });
+            // router.push('/');
+        } catch (error) {
+            console.log(error);
+            alert(error.message);
+        }
+
     }
 
     return (
@@ -26,8 +34,17 @@ const LoginForm = () => {
                                 <input type="email" name='email' className="input" placeholder="Email" />
                             </div>
                             <div>
-                                <label className="label">Password</label>
-                                <input type="password" name='password' className="input" placeholder="Password" />
+                                <label className="form-control w-full">
+                                    <div className="label w-full">
+                                        <span className="label-text font-bold">Password</span>
+                                    </div>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Type here"
+                                        className="input input-bordered w-full"
+                                    />
+                                </label>
                             </div>
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <button className="btn bg-[#FF3811] text-white mt-4">Login</button>
@@ -37,7 +54,7 @@ const LoginForm = () => {
                 <p className="text-center">Or Sign In with</p>
                 {/* <SocialLogin /> */}
                 <p className="text-center">
-                     Don't Have an account?{" "}
+                    Don't Have an account?{" "}
                     <Link href="/auth-register" className="text-orange-500 font-bold">
                         Register
                     </Link>

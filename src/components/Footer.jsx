@@ -11,7 +11,7 @@ const Footer = () => {
                 <div>
                     {/* Logo Section */}
                     <div className="flex items-center gap-2 mb-4">
-                        <Image src='/assets/images/checkout/whiteLogo.png' alt="Vercel Logo" width={80} height={80} className="h-auto w-auto" />
+                        <Image loading="eager" src='/assets/images/checkout/whiteLogo.png' alt="Vercel Logo" width={80} height={80} className="h-auto w-auto" />
 
                     </div>
                     <p className="text-sm leading-relaxed mb-4">

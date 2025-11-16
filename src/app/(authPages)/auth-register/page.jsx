@@ -12,6 +12,7 @@ const RegisterPage = () => {
                 alt="Login image"
                 width={1500}
                 height={1500}
+                loading="eager"
                 className="h-full w-full rounded-lg object-contain"
                 />
             </div>

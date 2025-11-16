@@ -36,6 +36,7 @@ export default async function SingleServicepage({ params }) {
 
             <section className=" relative w-full mt-5 mb-20">
                 <Image
+                    loading="eager"
                     src={'/assets/images/checkout/checkout.png'}
                     alt="Checkout png"
                     width={1500}
@@ -63,6 +64,7 @@ export default async function SingleServicepage({ params }) {
                         {
                             s.img &&
                             <Image
+                                loading="eager"
                                 src={s.img}
                                 alt={s.title}
                                 fill

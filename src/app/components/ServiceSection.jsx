@@ -34,6 +34,7 @@ const ServiceSection = async () => {
                             alt={item.title}
                             width={400}
                             height={300}
+                            loading="eager"
                             className="w-full h-56 object-cover"
                         />
                         <div className='flex items-center justify-between px-4'>

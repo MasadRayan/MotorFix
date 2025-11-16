@@ -41,7 +41,7 @@ const NavBar = () => {
                             </ul>
                         </div>
                         <Link href="/">
-                            <Image src="/assets/logo.svg" alt="Vercel Logo" width={80} height={80} className='h-[60px] w-auto' />
+                            <Image loading="eager" src="/assets/logo.svg" alt="Vercel Logo" width={80} height={80} className='h-[60px] w-auto' />
                         </Link>
                     </div>
                     <div className="navbar-end hidden lg:flex">
@@ -69,7 +69,7 @@ const NavBar = () => {
                             </ul>
                         </div>
                         <Link href="/">
-                            <Image src="/assets/logo.svg" alt="Vercel Logo" width={80} height={80} className='h-[60px] w-auto' />
+                            <Image loading="eager" src="/assets/logo.svg" alt="Vercel Logo" width={80} height={80} className='h-[60px] w-auto' />
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">

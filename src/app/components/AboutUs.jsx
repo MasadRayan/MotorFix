@@ -13,6 +13,7 @@ const AboutUs = () => {
           alt="Mechanic at work"
           width={500}
           height={400}
+          loading="eager"
           className="rounded-lg object-cover w-[90%] shadow-md"
         />
 
@@ -23,6 +24,7 @@ const AboutUs = () => {
             alt="Car tools"
             width={220}
             height={160}
+            loading="eager"
             className="rounded-md h-auto w-auto object-cover"
           />
         </div>
