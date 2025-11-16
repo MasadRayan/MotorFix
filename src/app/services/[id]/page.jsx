@@ -176,7 +176,7 @@ export default async function SingleServicepage({ params }) {
                         </div>
 
                         <button id="book" className="mt-6 w-full btn bg-[#FF3811] text-white rounded-md px-4 py-2">
-                            Book Service
+                            Proceed Checkout
                         </button>
 
                         <div className="mt-4 text-xs text-gray-500">
