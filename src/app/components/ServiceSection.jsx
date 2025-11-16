@@ -47,7 +47,7 @@ const ServiceSection = async () => {
                             </div>
                             <div>
                                 <Link href={`/services/${item._id}`}>
-                                    <FaArrowRight></FaArrowRight>
+                                    <FaArrowRight className='text-[#FF3811]'></FaArrowRight>
                                 </Link>
                             </div>
                         </div>

@@ -1,5 +1,4 @@
-// app/services/[id]/page.jsx  (or components/SingleServicepage.jsx)
-// Server component (async)
+import React from "react";
 import axios from "axios";
 import { Scroll } from "lucide-react";
 import Image from "next/image";
@@ -13,13 +12,12 @@ const StarSvg = ({ className = "w-4 h-4" }) => (
 export default async function SingleServicepage({ params }) {
     const { id } = await params;
 
-    // Server-side fetch - you used axios. Keep it or replace with fetch
     let service = null;
     try {
         const res = await axios.get(`http://localhost:5000/api/service/${id}`);
         service = res.data;
     } catch (err) {
-        // Handle error gracefully (render fallback)
+
         console.error("Failed to load service", err?.message || err);
         return (
             <div className="min-h-[60vh] flex items-center justify-center">
@@ -31,22 +29,33 @@ export default async function SingleServicepage({ params }) {
         );
     }
 
-    const s = service; // assume service is the object you posted
+    const s = service;
 
     return (
         <main className="max-w-7xl mx-auto px-6 md:px-8 py-12">
-            {/* Breadcrumb / small header */}
-            <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
-                <ol className="flex gap-2 items-center">
-                    <li><a className="hover:underline">Home</a></li>
-                    <li> / </li>
-                    <li><a className="hover:underline">Services</a></li>
-                    <li> / </li>
-                    <li className="text-gray-700">{s.title}</li>
-                </ol>
-            </nav>
 
-            {/* Top hero area */}
+            <section className=" relative w-full mt-5 mb-20">
+                <Image
+                    src={'/assets/images/checkout/checkout.png'}
+                    alt="Checkout png"
+                    width={1500}
+                    height={1500}
+                    className="w-full h-[220px] md:h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20 rounded-2xl"></div>
+                <p className="absolute top-10 md:top-30 right-20 md:left-20 text-3xl md:text-5xl font-bold text-white ">Service Details</p>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2  bg-[#FF3811] text-white px-3 py-2 flex justify-center items-center" aria-label="Breadcrumb">
+                    <ol className="flex gap-2 items-center">
+                        <li><a className="hover:underline">Home</a></li>
+                        <li> / </li>
+                        <li><a className="hover:underline">Services</a></li>
+                        <li> / </li>
+                        <li className="">{s.title}</li>
+                    </ol>
+                </div>
+            </section>
+
+
             <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 {/* Left: big visual */}
                 <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-lg">
@@ -63,9 +72,7 @@ export default async function SingleServicepage({ params }) {
                                 blurDataURL="/assets/images/placeholder.jpg"
                             />
                         }
-                        {/* dark overlay */}
                         <div className="absolute inset-0 bg-linear-to-t from-black/65 via-black/30 to-transparent" />
-                        {/* text overlay */}
                         <div className="absolute left-6 bottom-6 text-white z-10 max-w-2xl">
                             <span className="inline-block bg-[#FF3811] text-white px-3 py-1 rounded-full text-xs font-medium">Service</span>
                             <h1 className="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
@@ -77,7 +84,6 @@ export default async function SingleServicepage({ params }) {
                         </div>
                     </div>
 
-                    {/* Content: description & facilities */}
                     <div className="bg-white p-6 md:p-10">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                             <div>
@@ -111,7 +117,6 @@ export default async function SingleServicepage({ params }) {
                             </div>
                         </div>
 
-                        {/* Full description */}
                         <article className="mt-8 prose prose-sm md:prose lg:prose-lg max-w-none text-gray-700">
                             <p>{s.description}</p>
                             <p>
@@ -119,7 +124,6 @@ export default async function SingleServicepage({ params }) {
                             </p>
                         </article>
 
-                        {/* Facilities grid */}
                         <div className="mt-8">
                             <h3 className="text-lg font-semibold mb-4">What this service includes</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -140,7 +144,6 @@ export default async function SingleServicepage({ params }) {
                             </div>
                         </div>
 
-                        {/* Additional details / notes */}
                         <div className="mt-8 space-y-3 text-sm text-gray-600">
                             <p><strong>Duration:</strong> 1-2 hours (approx)</p>
                             <p><strong>Warranty:</strong> 30 days service warranty on parts replaced</p>
@@ -149,7 +152,6 @@ export default async function SingleServicepage({ params }) {
                     </div>
                 </div>
 
-                {/* Right: sticky booking panel */}
                 <aside className="w-full lg:w-[340px]">
                     <div className="sticky top-24 bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
                         <div className="flex items-center justify-between">
@@ -182,7 +184,6 @@ export default async function SingleServicepage({ params }) {
                         </div>
                     </div>
 
-                    {/* small trust box */}
                     <div className="mt-6 p-4 bg-gray-50 border border-gray-100 rounded-lg text-sm">
                         <p className="font-medium text-gray-800">Trusted Technicians</p>
                         <p className="text-gray-500">Certified mechanics, transparent pricing, and genuine replacement parts.</p>
