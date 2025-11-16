@@ -44,7 +44,7 @@ const NavBar = () => {
                             <Image src="/assets/logo.svg" alt="Vercel Logo" width={80} height={80} className='h-[60px] w-auto' />
                         </Link>
                     </div>
-                    <div className="navbar-end ">
+                    <div className="navbar-end hidden lg:flex">
                         <ul className="menu menu-horizontal px-2">
                             {authLinks}
                         </ul>

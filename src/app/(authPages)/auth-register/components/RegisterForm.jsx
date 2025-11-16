@@ -10,6 +10,7 @@ const RegisterForm = () => {
             const name = e.target.name.value;
             const email = e.target.email.value;
             const password = e.target.password.value;
+            console.log(name, email, password);
             
         }
 
@@ -18,7 +19,7 @@ const RegisterForm = () => {
             <div className=''>
                 <h1 className='text-center text-5xl font-bold'>Welcome Back</h1>
             </div>
-            <form onSubmit={handleSubmit} className="w-full  space-y-10">
+            <form onSubmit={handleSubmit} className="w-full  space-y-5">
                 <div className="card bg-base-100 w-full">
                     <div className="card-body">
                         <fieldset className="w-full flex flex-col justify-start  gap-5">
