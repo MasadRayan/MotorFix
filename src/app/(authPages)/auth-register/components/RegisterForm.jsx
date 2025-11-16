@@ -3,6 +3,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import SocialLogin from '../../auth-login/components/SocialLogin';
 
 const RegisterForm = () => {
     const router = useRouter();
@@ -60,7 +61,7 @@ const RegisterForm = () => {
                     </div>
                 </div>
                 <p className="text-center">Or Sign In with</p>
-                {/* <SocialLogin /> */}
+                <SocialLogin></SocialLogin>
                 <p className="text-center">
                     Already have an account?{" "}
                     <Link href="/auth-login" className="text-orange-500 font-bold">

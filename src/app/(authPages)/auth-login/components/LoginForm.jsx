@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 import { signIn, signOut } from "next-auth/react"
 import toast from 'react-hot-toast';
+import SocialLogin from './SocialLogin';
 
 const LoginForm = () => {
     const router = useRouter();
@@ -36,7 +37,7 @@ const LoginForm = () => {
             <div className=''>
                 <h1 className='text-center text-5xl font-bold'>Welcome Back</h1>
             </div>
-            <form onSubmit={handleSubmit} className="w-full  space-y-10">
+            <form onSubmit={handleSubmit} className="w-full  space-y-3">
                 <div className="card bg-base-100 w-full">
                     <div className="card-body">
                         <fieldset className="w-full flex flex-col justify-start  gap-5">
@@ -63,7 +64,7 @@ const LoginForm = () => {
                     </div>
                 </div>
                 <p className="text-center">Or Sign In with</p>
-                {/* <SocialLogin /> */}
+                <SocialLogin></SocialLogin>
                 <p className="text-center">
                     Don't Have an account?{" "}
                     <Link href="/auth-register" className="text-orange-500 font-bold">
