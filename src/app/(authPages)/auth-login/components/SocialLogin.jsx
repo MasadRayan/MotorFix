@@ -1,12 +1,25 @@
 "use client";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaGithub } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const SocialLogin = () => {
-    const handleSocialLogin = async (providerName) => {
-        const result = await signIn(providerName, { redirect: false });
+    const router = useRouter();
+    const session = useSession();
+
+    useEffect(() => {
+        if (session?.status == 'authenticated') {
+            router.push('/');
+            toast.success('Login successful');
+        }
+    }, [session?.status])
+
+    const handleSocialLogin = (providerName) => {
+        signIn(providerName);
+
     }
     return (
         <div className="flex justify-center gap-8">
@@ -14,7 +27,7 @@ const SocialLogin = () => {
                 onClick={() => handleSocialLogin("google")}
                 className="bg-slate-200 shadow-2xl rounded-full p-3 cursor-pointer"
             >
-                <FaGoogle  type="button" />
+                <FaGoogle type="button" />
             </p>
             <p
                 onClick={() => handleSocialLogin("github")}
