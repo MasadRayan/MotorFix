@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Scroll } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const StarSvg = ({ className = "w-4 h-4" }) => (
     <svg className={className} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
@@ -104,12 +105,7 @@ export default async function SingleServicepage({ params }) {
                             </div>
 
                             <div className="flex gap-3">
-                                <a
-                                    href="#book"
-                                    className="btn bg-[#FF3811] hover:bg-[#e53a0f] text-white rounded-md px-5 py-2 shadow"
-                                >
-                                    Book Now
-                                </a>
+
                                 <a
                                     href="tel:+1234567890"
                                     className="btn btn-outline border-gray-300 text-gray-700 rounded-md px-4 py-2"
@@ -167,22 +163,14 @@ export default async function SingleServicepage({ params }) {
                             </div>
                         </div>
 
-                        <div className="mt-6">
-                            <label className="block text-sm text-gray-700">Choose Date</label>
-                            <input type="date" className="mt-2 input input-bordered w-full" />
-                        </div>
-
-                        <div className="mt-4">
-                            <label className="block text-sm text-gray-700">Your Phone</label>
-                            <input placeholder="+8801xxxxxxxxx" className="mt-2 input input-bordered w-full" />
-                        </div>
-
-                        <button id="book" className="mt-6 w-full btn bg-[#FF3811] text-white rounded-md px-4 py-2">
-                            Proceed Checkout
-                        </button>
+                        <Link href={`/checkout/${service._id}`}>
+                            <button id="book" className="mt-6 w-full btn bg-[#FF3811] text-white rounded-md px-4 py-2">
+                                Proceed Checkout
+                            </button>
+                        </Link>
 
                         <div className="mt-4 text-xs text-gray-500">
-                            <p>Need help? Call us at <a href="tel:+1234567890" className="text-gray-800 font-medium">+1 (234) 567-890</a></p>
+                            <p>Need help? Call us at <a href="tel:+1234567890" className="text-gray-800 font-medium">+880 1709341256</a></p>
                         </div>
                     </div>
 
