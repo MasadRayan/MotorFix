@@ -10,7 +10,7 @@ const CheckOutPage = async ({params}) => {
     console.log(id);
     return (
         <div>
-            <CheckoutForm></CheckoutForm>
+            <CheckoutForm data={service}></CheckoutForm>
         </div>
     );
 };

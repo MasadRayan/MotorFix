@@ -1,13 +1,15 @@
 "use client";
 
+import axios from "axios";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
 import toast from "react-hot-toast";
 
 const CheckoutForm = ({ data }) => {
+    console.log(data);
     const { data: session } = useSession();
-    console.log(session);
+    // console.log(session);
 
     const handleBookService = async (e) => {
         toast("Submitting Booking...");
@@ -19,12 +21,37 @@ const CheckoutForm = ({ data }) => {
         const phone = form.phone.value;
         const address = form.address.value;
         const email = form.email.value;
+        const formInfo = { 
+            // session
+            name, 
+            email, 
+            
+            // User Input
+            date, 
+            phone, 
+            address,
+
+            // extra info
+            serviceName: data.title,
+            servicePrice: data.price,
+            serviceId: data._id,
+            serviceImg: data.img,
+            status: "Pending",
+        };
+
+        const res = await axios.post("http://localhost:5000/api/booking", formInfo);
+        if (res.data.insertedId) {
+            toast.dismiss();
+            toast.success("Booking successful");
+            form.reset();
+        }
+        console.log(formInfo);
 
     };
 
     return (
         <div className="my-10 max-w-7xl mx-auto">
-            <section className=" relative w-full mt-5 mb-20">
+            <section className=" relative w-full mt-5 mb-14">
                 <Image
                     loading="eager"
                     src={'/assets/images/checkout/checkout.png'}
@@ -44,6 +71,9 @@ const CheckoutForm = ({ data }) => {
                 </div>
             </section>
             <div className="w-11/12 mx-auto">
+                <div className="text-center mb-8">
+                    <p className="text-4xl font-semibold">Book Service: {data.title}</p>
+                </div>
                 <form onSubmit={handleBookService}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <fieldset className="fieldset">

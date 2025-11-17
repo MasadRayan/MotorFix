@@ -85,7 +85,7 @@ const NavBar = () => {
                                 status == 'authenticated' ? (
                                     <>
                                         <div className='flex justify-center items-center gap-3'>
-                                        <Image loading="eager" src={session?.user.image} alt="Vercel Logo" width={40} height={40} className='h-8 w-8 rounded-full' />
+                                        <Image loading="eager" src={session?.user.image} alt="Vercel Logo" width={40} height={40} className='h-10 w-10 rounded-full' />
                                         <button onClick={() => signOut()} className='btn btn-outline text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
                                             LogOut
                                         </button>
