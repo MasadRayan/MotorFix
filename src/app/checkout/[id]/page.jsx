@@ -1,3 +1,4 @@
+import CheckoutForm from '@/components/CheckoutForm';
 import axios from 'axios';
 import React from 'react';
 
@@ -9,7 +10,7 @@ const CheckOutPage = async ({params}) => {
     console.log(id);
     return (
         <div>
-            
+            <CheckoutForm></CheckoutForm>
         </div>
     );
 };

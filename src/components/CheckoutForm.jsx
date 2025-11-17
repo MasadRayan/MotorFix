@@ -1,138 +1,120 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import React from "react";
 import toast from "react-hot-toast";
 
 const CheckoutForm = ({ data }) => {
-  const { data: session } = useSession();
-  console.log(session);
+    const { data: session } = useSession();
+    console.log(session);
 
-  const handleBookService = async (e) => {
-    toast("Submitting Booking...");
-    e.preventDefault();
+    const handleBookService = async (e) => {
+        toast("Submitting Booking...");
+        e.preventDefault();
 
-    const form = e.target;
-    const name = form.name.value;
-    const date = form.date.value;
-    const phone = form.phone.value;
-    const address = form.address.value;
-    const email = form.email.value;
-    const bookingPayload = {
-      // Session
-      customerName: name,
-      email,
+        const form = e.target;
+        const name = form.name.value;
+        const date = form.date.value;
+        const phone = form.phone.value;
+        const address = form.address.value;
+        const email = form.email.value;
 
-      // User Inputs
-      date,
-      phone,
-      address,
-
-      // Extra information
-      service_id: data._id,
-      service_name: data.title,
-      service_img: data.img,
-      service_price: data.price,
     };
 
-    console.log(bookingPayload);
-    const res = await fetch(
-      "https://nextjs-car-doctor-kappa.vercel.app/api/service",
-      {
-        method: "POST",
-        body: JSON.stringify(bookingPayload),
-      }
+    return (
+        <div className="my-10 max-w-7xl mx-auto">
+            <section className=" relative w-full mt-5 mb-20">
+                <Image
+                    loading="eager"
+                    src={'/assets/images/checkout/checkout.png'}
+                    alt="Checkout png"
+                    width={1500}
+                    height={1500}
+                    className="w-full h-[220px] md:h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20 rounded-2xl"></div>
+                <p className="absolute top-10 md:top-30 right-20 md:left-20 text-3xl md:text-5xl font-bold text-white ">Check Out</p>
+                <div className="absolute rounded-t-2xl bottom-0 left-1/2 -translate-x-1/2  bg-[#FF3811] text-white px-5 py-2 flex justify-center items-center" aria-label="Breadcrumb">
+                    <ol className="flex gap-2 items-center">
+                        <li><a className="hover:underline">Home</a></li>
+                        <li> / </li>
+                        <li><a className="hover:underline">Checkout</a></li>
+                    </ol>
+                </div>
+            </section>
+            <div className="w-11/12 mx-auto">
+                <form onSubmit={handleBookService}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend text-base">Your name</legend>
+                            <input type="text"
+                                name="name"
+                                defaultValue={session?.user?.name}
+                                readOnly
+                                className="input w-full"
+                                placeholder="Name" />
+
+                        </fieldset>
+
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend text-base">Your email</legend>
+                            <input type="text"
+                                defaultValue={session?.user?.email}
+                                readOnly
+                                name="email"
+                                className="input w-full"
+                                placeholder="Your email" />
+
+                        </fieldset>
+
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend text-base">Due Amount</legend>
+                            <input type="text"
+                                name="price"
+                                defaultValue={data?.price}
+                                readOnly
+                                className="input w-full"
+                                placeholder="Due Amount" />
+                        </fieldset>
+
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend text-base">Date</legend>
+                            <input type="date"
+                                name="date"
+                                className="input w-full" />
+
+                        </fieldset>
+
+
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend text-base">Phone</legend>
+                            <input type="text"
+                                name="phone"
+                                placeholder="Your Phone Number"
+                                className="input w-full" />
+
+                        </fieldset>
+
+
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend text-base">Address</legend>
+                            <input type="text"
+                                name="address"
+                                placeholder="Your address"
+                                className="input w-full" />
+
+                        </fieldset>
+                    </div>
+                    <div className="form-control mt-6 w-full">
+                        <button type="submit" className="w-full rounded-2xl bg-[#FF3811] text-white btn">
+                            Order Confirm
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
-    const postedResponse = await res.json();
-    console.log("POSTED DATA", postedResponse);
-  };
-
-  return (
-    <div className="my-10">
-      <div className="w-11/12 mx-auto">
-        <h2 className="text-center text-3xl mb-4">
-          Book Service : {data?.title}
-        </h2>
-        <form onSubmit={handleBookService}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
-              <input
-                defaultValue={session?.user?.name}
-                readOnly
-                type="text"
-                name="name"
-                className="input input-bordered"
-              />
-            </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                defaultValue={session?.user?.email}
-                readOnly
-                type="text"
-                name="email"
-                placeholder="email"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Due amount</span>
-              </label>
-              <input
-                type="text"
-                defaultValue={data?.price}
-                readOnly
-                name="price"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Date</span>
-              </label>
-              <input type="date" name="date" className="input input-bordered" />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Phone</span>
-              </label>
-              <input
-                type="text"
-                name="phone"
-                placeholder="Your Phone"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Present Address</span>
-              </label>
-              <input
-                type="text"
-                name="address"
-                placeholder="Your Address"
-                className="input input-bordered"
-              />
-            </div>
-          </div>
-          <div className="form-control mt-6">
-            <input
-              className="btn btn-primary btn-block"
-              type="submit"
-              value="Order Confirm"
-            />
-          </div>
-        </form>
-      </div>
-    </div>
-  );
 };
 
 export default CheckoutForm;
