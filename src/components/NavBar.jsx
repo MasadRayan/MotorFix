@@ -12,8 +12,8 @@ const NavBar = () => {
     const links = (
         <>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>
-            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/services">About</Link></li>
-            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/about">Services</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/services">Services</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/about">About</Link></li>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/about">Blog</Link></li>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/contact">Contact</Link></li>
         </>

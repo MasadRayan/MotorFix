@@ -1,8 +1,7 @@
-"use client";
+import DeleteBookingButton from "@/app/mybookings/components/DeleteBookingButton";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegEdit } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
 
 export default function MybookingTable({ data }) {
 
@@ -85,7 +84,7 @@ export default function MybookingTable({ data }) {
                                         <button
                                             className="p-3 rounded-full bg-red-100 hover:bg-red-200 transition"
                                         >
-                                            <MdDeleteForever className="text-red-600 text-2xl" />
+                                            <DeleteBookingButton id={item._id}></DeleteBookingButton>
 
                                         </button>
 

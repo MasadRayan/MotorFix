@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 const CheckoutForm = ({ data }) => {
     console.log(data);
     const { data: session } = useSession();
-    // console.log(session);
+    console.log(session);
 
     const handleBookService = async (e) => {
         toast("Submitting Booking...");
