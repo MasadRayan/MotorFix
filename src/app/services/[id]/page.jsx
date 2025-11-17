@@ -48,9 +48,9 @@ export default async function SingleServicepage({ params }) {
                 <p className="absolute top-10 md:top-30 right-20 md:left-20 text-3xl md:text-5xl font-bold text-white ">Service Details</p>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2  bg-[#FF3811] text-white px-3 py-2 flex justify-center items-center" aria-label="Breadcrumb">
                     <ol className="flex gap-2 items-center">
-                        <li><a className="hover:underline">Home</a></li>
+                        <li><Link href={'/'} className="hover:underline">Home</Link></li>
                         <li> / </li>
-                        <li><a className="hover:underline">Services</a></li>
+                        <li><Link href="/services" className="hover:underline">Services</Link></li>
                         <li> / </li>
                         <li className="">{s.title}</li>
                     </ol>
