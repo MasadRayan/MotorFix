@@ -13,7 +13,7 @@ const RegisterForm = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const userInfo = { name, email, password };
+        const userInfo = { name, email, password, role: "user" };
 
         const res = await axios.post("http://localhost:5000/api/user",
             userInfo

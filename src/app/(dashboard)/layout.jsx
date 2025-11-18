@@ -1,8 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FiX } from "react-icons/fi";
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/authOptions';
+import axios from 'axios';
+import Sidebar from './Sidebar';
 
-export default function DashboardLayout({ children }) {
+export default async function DashboardLayout({ children }) {
+    const session = await getServerSession(authOptions);
+    const email = session?.user?.email;
+
+    const getRole = await axios.get(`http://localhost:5000/api/user/role/${email}`);
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -50,7 +59,7 @@ export default function DashboardLayout({ children }) {
                         </label>
                     </div>
 
-                    {/* Sidebar items go here */}
+                    <Sidebar role={getRole.data}></Sidebar>
                 </ul>
             </div>
         </div>
