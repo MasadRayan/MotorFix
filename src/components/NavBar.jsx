@@ -3,12 +3,13 @@ import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 
 const NavBar = () => {
     const pathName = usePathname();
     const { data: session, status } = useSession();
+    const [openBtn, setOpenBtn] = useState(false);
     const links = (
         <>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>
@@ -27,6 +28,7 @@ const NavBar = () => {
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/auth-register">Register</Link></li>
         </>
     )
+
     if (pathName.includes('auth')) {
         return (
             <div className='sticky top-0 z-50 bg-transparent backdrop-blur-2xl '>
@@ -54,6 +56,9 @@ const NavBar = () => {
                 </div>
             </div>
         )
+    }
+    if (pathName.includes('Dashboard')) {
+        return <></>
     }
     else {
         return (
@@ -85,10 +90,21 @@ const NavBar = () => {
                                 status == 'authenticated' ? (
                                     <>
                                         <div className='flex justify-center items-center gap-3'>
-                                        <Image loading="eager" src={session?.user.image} alt="Vercel Logo" width={40} height={40} className='h-10 w-10 rounded-full' />
-                                        <button onClick={() => signOut()} className='btn btn-outline text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
-                                            LogOut
-                                        </button>
+                                            <div onClick={() => setOpenBtn(!openBtn)}>
+                                                <Image loading="eager" src={session?.user.image} alt="Vercel Logo" width={40} height={40} className='h-10 w-10 rounded-full' />
+                                                {
+                                                    openBtn && (
+                                                        <div className='absolute top-17 right-13 bg-white p-2 rounded-lg shadow-md'>
+                                                            <Link href={'/userDashboard'}>
+                                                                <button className='btn btn-outline bg-[#FF3811] text-white'>Dashboard</button>
+                                                            </Link>
+                                                        </div>
+                                                    )
+                                                }
+                                            </div>
+                                            <button onClick={() => signOut()} className='btn btn-outline text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
+                                                LogOut
+                                            </button>
                                         </div>
                                     </>
                                 ) : (
