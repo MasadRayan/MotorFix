@@ -74,7 +74,7 @@ export default function MybookingTable({ data }) {
                                         
                                         {/* EDIT BUTTON */}
                                         <Link
-                                            href={`/my-bookings/${item._id}`}
+                                            href={`/mybookings/${item._id}`}
                                             className="p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition"
                                         >
                                             <FaRegEdit className="text-blue-600 text-xl" />

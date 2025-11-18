@@ -20,9 +20,9 @@ const NavBar = () => {
     )
     const authLinks = (
         <>
-            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Order</Link></li>
-            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/services">Order review</Link></li>
-            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/about">Manage inventory</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/services">Services</Link></li>
+            <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/about">About</Link></li>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/auth-login">Login</Link></li>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/auth-register">Register</Link></li>
         </>

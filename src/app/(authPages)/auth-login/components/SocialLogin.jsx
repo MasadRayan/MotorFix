@@ -11,29 +11,31 @@ const SocialLogin = () => {
     const session = useSession();
 
     useEffect(() => {
-        if (session?.status == 'authenticated') {
-            router.push('/');
+        if (session?.status === 'authenticated') {
             toast.success('Login successful');
         }
-    }, [session?.status])
+    }, [session?.status]);
 
     const handleSocialLogin = (providerName) => {
-        signIn(providerName);
+        const callbackUrl =
+            new URLSearchParams(window.location.search).get('callbackUrl') || "/";
 
-    }
+        signIn(providerName, { callbackUrl });
+    };
+
     return (
         <div className="flex justify-center gap-8">
             <p
                 onClick={() => handleSocialLogin("google")}
                 className="bg-slate-200 shadow-2xl rounded-full p-3 cursor-pointer"
             >
-                <FaGoogle type="button" />
+                <FaGoogle />
             </p>
             <p
                 onClick={() => handleSocialLogin("github")}
                 className="bg-slate-200 rounded-full p-3 cursor-pointer"
             >
-                <FaGithub type="button" />
+                <FaGithub />
             </p>
         </div>
     );

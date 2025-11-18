@@ -3,13 +3,13 @@
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
 const BookingUpdateForm = ({ data }) => {
-    console.log(data);
+    const router = useRouter();
     const { data: session } = useSession();
-    console.log(session);
 
     const handleBookService = async (e) => {
         toast("Submitting Booking...");
@@ -19,20 +19,24 @@ const BookingUpdateForm = ({ data }) => {
         const date = form.date.value;
         const phone = form.phone.value;
         const address = form.address.value;
-        const formInfo = { 
+        const formInfo = {
             // User Input
-            date, 
-            phone, 
+            date,
+            phone,
             address,
         };
 
-        const res = await axios.post("http://localhost:5000/api/booking", formInfo);
-        if (res.data.insertedId) {
+        const res = await axios.patch(`http://localhost:5000/api/booking/bookingUpdate/${data._id}`,
+            {
+                email: session?.user?.email,
+                bookingData: formInfo,
+            });
+        if (res.data.modifiedCount) {
             toast.dismiss();
             toast.success("Booking successful");
             form.reset();
+            router.push(`/mybookings`);
         }
-        console.log(formInfo);
 
     };
 
@@ -89,7 +93,7 @@ const BookingUpdateForm = ({ data }) => {
                             <legend className="fieldset-legend text-base">Due Amount</legend>
                             <input type="text"
                                 name="price"
-                                defaultValue={data?.price}
+                                defaultValue={data?.servicePrice}
                                 readOnly
                                 className="input w-full"
                                 placeholder="Due Amount" />
@@ -98,6 +102,7 @@ const BookingUpdateForm = ({ data }) => {
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend text-base">Date</legend>
                             <input type="date"
+                                defaultValue={data?.date}
                                 name="date"
                                 className="input w-full" />
 
@@ -108,6 +113,7 @@ const BookingUpdateForm = ({ data }) => {
                             <legend className="fieldset-legend text-base">Phone</legend>
                             <input type="text"
                                 name="phone"
+                                defaultValue={data?.phone}
                                 placeholder="Your Phone Number"
                                 className="input w-full" />
 
@@ -118,6 +124,7 @@ const BookingUpdateForm = ({ data }) => {
                             <legend className="fieldset-legend text-base">Address</legend>
                             <input type="text"
                                 name="address"
+                                defaultValue={data?.address}
                                 placeholder="Your address"
                                 className="input w-full" />
 
@@ -125,7 +132,7 @@ const BookingUpdateForm = ({ data }) => {
                     </div>
                     <div className="form-control mt-6 w-full">
                         <button type="submit" className="w-full rounded-2xl bg-[#FF3811] text-white btn">
-                            Order Confirm
+                            Update Booking
                         </button>
                     </div>
                 </form>

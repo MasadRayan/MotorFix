@@ -21,7 +21,6 @@ export const authOptions = {
             async authorize(credentials, req) {
                 const res = await axios.post("http://localhost:5000/api/user/login", credentials);
                 const user = res.data;
-                console.log("From the user chk", user);
 
                 if (user?.message) {
                     throw new Error(user.message);
@@ -48,7 +47,6 @@ export const authOptions = {
     },
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
-            console.log({ user, account, profile, email, credentials });
             if (account) {
                 const {providerAccountId, provider } = account;
                 const {email: user_email, image, name} = user;

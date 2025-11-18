@@ -19,7 +19,6 @@ const RegisterForm = () => {
             userInfo
         );
         if (res.data.insertedId) {
-            console.log(res.data.insertedId);
             e.target.reset();
         }
         else {
