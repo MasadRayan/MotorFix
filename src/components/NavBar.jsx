@@ -4,12 +4,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
-import { FaSearch, FaShoppingCart } from "react-icons/fa";
 
+let role = null;
 const NavBar = () => {
     const pathName = usePathname();
     const { data: session, status } = useSession();
     const [openBtn, setOpenBtn] = useState(false);
+    const email = session?.user?.email;
+    const fetchRole = async () => {
+        const getRole = await axios.get(`http://localhost:5000/api/user/role/${email}`);
+        role = getRole.data;
+    }
     const links = (
         <>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>
@@ -95,9 +100,17 @@ const NavBar = () => {
                                                 {
                                                     openBtn && (
                                                         <div className='absolute top-17 right-13 bg-white p-2 rounded-lg shadow-md'>
-                                                            <Link href={'/userDashboard'}>
-                                                                <button className='btn btn-outline bg-[#FF3811] text-white'>Dashboard</button>
-                                                            </Link>
+                                                            {
+                                                                role == 'admin' ? (
+                                                                    <Link href={'/adminDashboard'}>
+                                                                        <button className='btn text-white bg-[#FF3811] '>Dashboard</button>
+                                                                    </Link>
+                                                                ) : (
+                                                                    <Link href={'/userDashboard'}>
+                                                                        <button className='btn text-white bg-[#FF3811]'>Dashboard</button>
+                                                                    </Link>
+                                                                )
+                                                            }
                                                         </div>
                                                     )
                                                 }
