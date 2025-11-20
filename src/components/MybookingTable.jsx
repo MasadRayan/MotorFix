@@ -1,4 +1,4 @@
-import DeleteBookingButton from "@/app/mybookings/components/DeleteBookingButton";
+import DeleteBookingButton from "@/app/(dashboard)/userDashboard/mybookings/components/DeleteBookingButton";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegEdit } from "react-icons/fa";

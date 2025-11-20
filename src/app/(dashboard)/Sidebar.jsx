@@ -24,7 +24,7 @@ const Sidebar = ({ role }) => {
                                 User Home
                             </button>
                         </Link>
-                        <Link href="/dashboard/userDashboard">
+                        <Link href="/userDashboard/mybookings">
                             <button className='btn btn-outline w-full text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
                                 My Bookings
                             </button>
