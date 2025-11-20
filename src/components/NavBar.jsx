@@ -26,7 +26,6 @@ const NavBar = () => {
     }
 };
 
-    console.log("From the navbar", role);
     const links = (
         <>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>

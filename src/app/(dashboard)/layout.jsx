@@ -11,7 +11,6 @@ export default async function DashboardLayout({ children }) {
     const email = session?.user?.email;
 
     const getRole = await axios.get(`http://localhost:5000/api/user/role/${email}`);
-
     return (
         <div className="drawer lg:drawer-open">
             <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -59,7 +58,7 @@ export default async function DashboardLayout({ children }) {
                         </label>
                     </div>
 
-                    <Sidebar role={getRole.data}></Sidebar>
+                    <Sidebar role={getRole.data.role}></Sidebar>
                 </ul>
             </div>
         </div>

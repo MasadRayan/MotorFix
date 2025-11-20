@@ -11,7 +11,7 @@ const Sidebar = ({ role }) => {
                     <div className='flex flex-col justify-center gap-5 pl-5 w-full '>
                         <Link href="/adminDashboard/adminHome">
                             <button className='btn btn-outline w-full text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
-                                User Home
+                                Admin Home
                             </button>
                         </Link>
                         <Link href="/adminDashboard/allUsers">
