@@ -12,7 +12,7 @@ const ALLUsersPage = async () => {
     const email = session?.user?.email;
 
     const res = await fetch(`http://localhost:5000/api/user/allUser/${email}`, {
-        next: { revalidate: 0 },   // disable cache
+        next: { revalidate: 0 }, 
     });
 
     if (!res.ok) {
