@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import MakeAdmin from "./MakeAdmin";
 
 export default function AllUserTable({ data }) {
 
@@ -60,7 +61,7 @@ export default function AllUserTable({ data }) {
                                         user.provider ? user.provider : "Email "
                                     }</td>
 
-                                    
+
 
                                     {/* ROLE */}
                                     <td className="font-semibold">
@@ -77,9 +78,9 @@ export default function AllUserTable({ data }) {
                                     <td className="flex items-center justify-center gap-5">
 
                                         {/* EDIT */}
-                                        <button className="p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition">
-                                            <FaRegEdit className="text-blue-600 text-xl" />
-                                        </button>
+                                        <div className="">
+                                            <MakeAdmin id={user._id}></MakeAdmin>
+                                        </div>
 
                                         {/* DELETE */}
                                         <button className="p-3 rounded-full bg-red-100 hover:bg-red-200 transition">
