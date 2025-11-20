@@ -8,13 +8,20 @@ const Sidebar = ({ role }) => {
             {/* ROLE BASED LINKS */}
             {role === "admin" ? (
                 <>
-                    <li><Link href="/dashboard/adminDashboard">
-                        <button>
-                            Admin Home
-                        </button>
-                    </Link></li>
-                    <li><Link href="/dashboard/manageBookings">Manage Bookings</Link></li>
-                    <li><Link href="/dashboard/manageUsers">Manage Users</Link></li>
+                    <div className='flex flex-col justify-center gap-5 pl-5 w-full '>
+                        <Link href="/adminDashboard/adminHome">
+                            <button className='btn btn-outline w-full text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
+                                User Home
+                            </button>
+                        </Link>
+                        <Link href="/adminDashboard/allUsers">
+                            <button className='btn btn-outline w-full text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
+                                All Users
+                            </button>
+                        </Link>
+                    </div>
+
+
                 </>
             ) : (
                 <>
@@ -29,7 +36,7 @@ const Sidebar = ({ role }) => {
                                 My Bookings
                             </button>
                         </Link>
-                        
+
                     </div>
 
                 </>

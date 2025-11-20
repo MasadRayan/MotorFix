@@ -1,20 +1,32 @@
 "use client";
+import axios from 'axios';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
-let role = null;
 const NavBar = () => {
     const pathName = usePathname();
     const { data: session, status } = useSession();
     const [openBtn, setOpenBtn] = useState(false);
     const email = session?.user?.email;
-    const fetchRole = async () => {
-        const getRole = await axios.get(`http://localhost:5000/api/user/role/${email}`);
-        role = getRole.data;
+    const [role, setRole] = useState(null);
+    const getRole = async () => {
+    if (!session?.user?.email) return; 
+
+    try {
+        const res = await axios.get(
+            `http://localhost:5000/api/user/role/${session.user.email}`
+        );
+
+        setRole(res.data.role);
+    } catch (err) {
+        console.error("Role fetch failed:", err);
     }
+};
+
+    console.log("From the navbar", role);
     const links = (
         <>
             <li><Link className='hover:text-[#FF3811] text-xl font-semibold' href="/">Home</Link></li>
@@ -95,13 +107,13 @@ const NavBar = () => {
                                 status == 'authenticated' ? (
                                     <>
                                         <div className='flex justify-center items-center gap-3'>
-                                            <div onClick={() => setOpenBtn(!openBtn)}>
+                                            <div onClick={() =>{ setOpenBtn(!openBtn), getRole() }}>
                                                 <Image loading="eager" src={session?.user.image} alt="Vercel Logo" width={40} height={40} className='h-10 w-10 rounded-full' />
                                                 {
                                                     openBtn && (
                                                         <div className='absolute top-17 right-13 bg-white p-2 rounded-lg shadow-md'>
                                                             {
-                                                                role == 'admin' ? (
+                                                                role === 'admin' ? (
                                                                     <Link href={'/adminDashboard'}>
                                                                         <button className='btn text-white bg-[#FF3811] '>Dashboard</button>
                                                                     </Link>
