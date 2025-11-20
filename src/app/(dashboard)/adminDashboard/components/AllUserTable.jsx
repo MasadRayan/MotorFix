@@ -79,13 +79,17 @@ export default function AllUserTable({ data }) {
 
                                         {/* EDIT */}
                                         <div className="">
-                                            <MakeAdmin id={user._id}></MakeAdmin>
+                                            {
+                                                user.role !== "admin" ? (
+                                                    <>
+                                                    <MakeAdmin user={user} /></>
+                                                ) : (
+                                                    <>
+                                                     <button disabled className="btn btn-outline text-[#FF3811] hover:bg-[#FF3811] hover:text-white transition-all px-[35px]">Admin</button>
+                                                    </>
+                                                )
+                                            }
                                         </div>
-
-                                        {/* DELETE */}
-                                        <button className="p-3 rounded-full bg-red-100 hover:bg-red-200 transition">
-                                            <MdDelete className="text-red-600 text-xl" />
-                                        </button>
 
                                     </td>
 
