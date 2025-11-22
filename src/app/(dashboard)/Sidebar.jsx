@@ -19,6 +19,11 @@ const Sidebar = ({ role }) => {
                                 All Users
                             </button>
                         </Link>
+                        <Link href="/adminDashboard/allServices">
+                            <button className='btn btn-outline w-full text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
+                                All Services
+                            </button>
+                        </Link>
                     </div>
 
 

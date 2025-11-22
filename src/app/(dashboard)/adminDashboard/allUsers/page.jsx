@@ -1,6 +1,6 @@
 import { authOptions } from '@/lib/authOptions';
 import { getServerSession } from 'next-auth';
-import AllUserTable from './components/AllUserTable';
+import AllUserTable from '../components/AllUserTable';
 
 const ALLUsersPage = async () => {
     const session = await getServerSession(authOptions);
