@@ -2,6 +2,7 @@ import { authOptions } from '@/lib/authOptions';
 import axios from 'axios';
 import { getServerSession } from 'next-auth';
 import React from 'react';
+import AllServicesTable from '../components/AllServicesTable';
 
 const AllServicesPages = async () => {
     const session = await getServerSession(authOptions);
@@ -13,7 +14,7 @@ const AllServicesPages = async () => {
     // console.log(data);
     return (
         <div>
-            
+            <AllServicesTable data={data}></AllServicesTable>
         </div>
     );
 };
