@@ -2,24 +2,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { 
-    Users, 
-    Calendar, 
-    DollarSign, 
-    Package, 
-    CheckCircle, 
-    Clock, 
+import {
+    Users,
+    Calendar,
+    DollarSign,
+    Package,
+    CheckCircle,
+    Clock,
     XCircle,
-    TrendingUp 
+    TrendingUp
 } from "lucide-react";
-import { 
-    LineChart, 
-    Line, 
-    XAxis, 
-    YAxis, 
-    CartesianGrid, 
-    Tooltip, 
-    ResponsiveContainer 
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer
 } from "recharts";
 import { useSession } from "next-auth/react";
 
@@ -203,21 +203,21 @@ const AdminHome = () => {
                     <CardContent className="p-8">
                         <div className="h-80">
                             <ResponsiveContainer width="100%" height="100%">
-                                <LineChart 
+                                <LineChart
                                     data={overview.last7Days}
                                     margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
                                 >
                                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                                    <XAxis 
-                                        dataKey="_id" 
+                                    <XAxis
+                                        dataKey="_id"
                                         stroke="#6b7280"
                                         style={{ fontSize: '12px' }}
                                     />
-                                    <YAxis 
+                                    <YAxis
                                         stroke="#6b7280"
                                         style={{ fontSize: '12px' }}
                                     />
-                                    <Tooltip 
+                                    <Tooltip
                                         contentStyle={{
                                             backgroundColor: '#fff',
                                             border: '1px solid #e5e7eb',
@@ -226,10 +226,10 @@ const AdminHome = () => {
                                         }}
                                         labelStyle={{ color: '#374151', fontWeight: 'bold' }}
                                     />
-                                    <Line 
-                                        type="monotone" 
-                                        dataKey="total" 
-                                        stroke="#FF3811" 
+                                    <Line
+                                        type="monotone"
+                                        dataKey="total"
+                                        stroke="#FF3811"
                                         strokeWidth={3}
                                         dot={{ fill: '#FF3811', strokeWidth: 2, r: 5 }}
                                         activeDot={{ r: 7 }}
