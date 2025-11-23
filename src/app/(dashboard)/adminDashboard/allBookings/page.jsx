@@ -1,6 +1,7 @@
 import { authOptions } from '@/lib/authOptions';
 import { getServerSession } from 'next-auth';
 import React from 'react';
+import AllBooking from '../components/AllBooking';
 
 const AllBookingPage = async () => {
     const session = await getServerSession(authOptions);
@@ -12,7 +13,7 @@ const AllBookingPage = async () => {
     console.log(data);
     return (
         <div>
-            
+            <AllBooking data={data}></AllBooking>
         </div>
     );
 };
