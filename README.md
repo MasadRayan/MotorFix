@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚗 MotoFix — Car Doctor Server
 
-## Getting Started
+🔗 **Live API Link:** [https://car-doctor-nextjs-nu.vercel.app/](https://car-doctor-nextjs-nu.vercel.app/)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📌 Overview
+
+MotoFix is a complete backend system designed for car servicing applications. It provides fully structured API endpoints for bookings, services, users, authentication, admin management, and more.
+
+This server is built using **Express.js** with a clean folder structure, secure middlewares, environment configuration, and MongoDB operations.
+
+---
+
+## 🚀 Features
+
+### ✅ Authentication & Authorization
+
+* User registration & login
+* JWT-based authentication
+* Admin role verification
+* Protected API routes
+
+### 🔧 Services Management
+
+* Get all services
+* Get single service by ID
+* Add new service (Admin)
+* Update & delete service
+
+### 📅 Booking System
+
+* Create booking
+* Get all bookings of a user
+* Cancel or update booking
+* Admin analytics for total bookings
+
+### 👨‍💼 Admin Dashboard API
+
+* Total Users
+* Total Bookings
+* Total Revenue
+* Total Services
+* Aggregated insights for charts
+
+### 🛡️ Security
+
+* CORS
+* Rate limiting
+* Input validation
+
+### 🔧 Utility & Helpers
+
+* Error handling middleware
+* Database connector
+* Clean reusable controllers
+
+---
+
+## 📁 Folder Structure
+
+```
+root
+├── src
+│   ├── config
+│   │   └── db.js
+│   ├── controllers
+│   ├── middlewares
+│   ├── routes
+│   ├── utils
+│   └── app.js
+├── index.js
+├── .env
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🛠️ Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Backend**
 
-## Learn More
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
 
-To learn more about Next.js, take a look at the following resources:
+### **Security & Utilities**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* JSON Web Token (JWT)
+* Bcrypt
+* CORS
+* Helmet
+* Morgan
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Deployment**
 
-## Deploy on Vercel
+* Vercel
+* GitHub
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔗 API Endpoints
+
+### 👤 **Auth Routes**
+
+* POST `/api/auth/register`
+* POST `/api/auth/login`
+* GET `/api/auth/me`
+
+### 🛠️ **Service Routes**
+
+* GET `/api/services`
+* GET `/api/services/:id`
+* POST `/api/services` (admin)
+* PUT `/api/services/:id`
+* DELETE `/api/services/:id`
+
+### 📅 **Booking Routes**
+
+* POST `/api/bookings`
+* GET `/api/bookings/user/:email`
+* DELETE `/api/bookings/:id`
+
+### 👑 **Admin Routes**
+
+* GET `/api/admin/overview`
+* PUT `/api/users/:email/make-admin`
+
+---
+
+## ▶️ Run Locally
+
+```
+# Clone the project
+https://github.com/MasadRayan/MotorFix.git
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+
+---
+
+## 🤝 Contributing
+
+Contributions are always welcome! Fork the repo and submit a pull request.
+
+---
+
+## 🧑‍💻 Developer
+
+**Masad Rayan**
+*MERN Stack Developer · Problem Solver*
+
+---
+
+## ⭐ Support the Project
+
+If you found this project helpful, please give it a ⭐ on GitHub!
