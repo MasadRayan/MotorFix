@@ -1,5 +1,5 @@
 import React from "react";
-import AcceptBooking from "./AcceptBooking";
+import UpdateBooking from "./UpdateBooking";
 
 const AllBooking = ({ data }) => {
     if (!data || data.length === 0) {
@@ -75,37 +75,8 @@ const AllBooking = ({ data }) => {
                                     <td className="flex items-center justify-center gap-3 py-4">
 
                                         {/* ACTION BUTTONS (only if pending) */}
-                                        {booking.status === "Pending" && (
-                                            <>
-                                                <AcceptBooking id={booking._id} ></AcceptBooking>
+                                        <UpdateBooking id={booking._id} status={booking.status} />
 
-                                                <button
-
-                                                    className="btn btn-error text-white px-5"
-                                                >
-                                                    Reject
-                                                </button>
-                                            </>
-                                        )}
-                                        {
-                                            booking.status === "Accepted" && (
-                                                <>
-                                                    <button
-
-                                                        className="btn btn-error text-white px-5"
-                                                    >
-                                                        Reject
-                                                    </button>
-                                                </>
-                                            )
-                                        }
-                                        {
-                                            booking.status === "Rejected" && (
-                                                <>
-                                                    <AcceptBooking id={booking._id} ></AcceptBooking>
-                                                </>
-                                            )
-                                        }
                                     </td>
 
                                 </tr>

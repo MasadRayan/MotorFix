@@ -29,8 +29,8 @@ export default function MybookingTable({ data }) {
                                 <th className="py-4">Service</th>
                                 <th>Date</th>
                                 <th>Price</th>
-                                <th>Phone</th>
                                 <th>Address</th>
+                                <th>Status</th>
                                 <th className="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -61,12 +61,28 @@ export default function MybookingTable({ data }) {
                                         ${item.servicePrice}
                                     </td>
 
-                                    {/* PHONE */}
-                                    <td>{item.phone}</td>
-
                                     {/* ADDRESS */}
                                     <td className="max-w-[150px] truncate">
                                         {item.address}
+                                    </td>
+
+                                    {/* STATUS */}
+                                    <td>
+                                        {item.status === "Pending" && (
+                                            <span className="badge badge-warning px-4 py-3">
+                                                Pending
+                                            </span>
+                                        )}
+                                        {item.status === "Accepted" && (
+                                            <span className="badge badge-success px-4 py-3">
+                                                Accepted
+                                            </span>
+                                        )}
+                                        {item.status === "Rejected" && (
+                                            <span className="badge badge-error px-4 py-3">
+                                                Rejected
+                                            </span>
+                                        )}
                                     </td>
 
                                     {/* ACTION BUTTONS */}
