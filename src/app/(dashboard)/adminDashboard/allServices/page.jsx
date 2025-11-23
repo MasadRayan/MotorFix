@@ -7,7 +7,7 @@ import AllServicesTable from '../components/AllServicesTable';
 const AllServicesPages = async () => {
     const session = await getServerSession(authOptions);
     const email = session?.user?.email
-    const res = await fetch(`http://localhost:5000/api/service/admin/${email}`, {
+    const res = await fetch(`https://motofix-server.vercel.app/api/service/admin/${email}`, {
         next: { revalidate: 0 }, 
     });
     const data = await res.json();

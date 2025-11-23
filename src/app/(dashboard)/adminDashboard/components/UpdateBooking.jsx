@@ -13,7 +13,7 @@ const UpdateBooking = ({ id, status }) => {
         toast.loading("Updating status...");
         try {
             await axios.patch(
-                `http://localhost:5000/api/booking/bookingUpdate/${id}/${email}`,
+                `https://motofix-server.vercel.app/api/booking/bookingUpdate/${id}/${email}`,
                 { status: newStatus }
             );
 

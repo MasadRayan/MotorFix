@@ -5,7 +5,7 @@ import React from 'react';
 import { FaArrowRight  } from 'react-icons/fa';
 
 const ServiceSection = async () => {
-    const res = await fetch('http://localhost:5000/api/service')
+    const res = await fetch('https://motofix-server.vercel.app/api/service')
     const data = await res.json();
 
     return (

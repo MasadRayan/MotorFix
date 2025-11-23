@@ -14,7 +14,7 @@ export default async function DashboardLayout({ children }) {
         redirect('/login');
     }
 
-    const getRole = await axios.get(`http://localhost:5000/api/user/role/${email}`);
+    const getRole = await axios.get(`https://motofix-server.vercel.app/api/user/role/${email}`);
     return (
         <div className="drawer lg:drawer-open">
             <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />

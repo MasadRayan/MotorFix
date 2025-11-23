@@ -26,7 +26,7 @@ const BookingUpdateForm = ({ data }) => {
             address,
         };
 
-        const res = await axios.patch(`http://localhost:5000/api/booking/bookingUpdate/${data._id}`,
+        const res = await axios.patch(`https://motofix-server.vercel.app/api/booking/bookingUpdate/${data._id}`,
             {
                 email: session?.user?.email,
                 bookingData: formInfo,

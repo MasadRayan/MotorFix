@@ -9,7 +9,7 @@ const MyBookingPage = async () => {
     const session = await getServerSession(authOptions);
     if (session) {
         const email = session?.user?.email;
-        const res = await axios.get(`http://localhost:5000/api/booking/user/${email}`);
+        const res = await axios.get(`https://motofix-server.vercel.app/api/booking/user/${email}`);
         const datas = res.data;
         data = datas;
     }

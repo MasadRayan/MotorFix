@@ -37,7 +37,7 @@ const CheckoutForm = ({ data }) => {
             status: "Pending",
         };
 
-        const res = await axios.post("http://localhost:5000/api/booking", formInfo);
+        const res = await axios.post("https://motofix-server.vercel.app/api/booking", formInfo);
         if (res.data.insertedId) {
             toast.dismiss();
             toast.success("Booking successful");

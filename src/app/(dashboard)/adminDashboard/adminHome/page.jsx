@@ -40,7 +40,7 @@ const AdminHome = () => {
             try {
                 setLoading(true);
                 const res = await axios.get(
-                    `http://localhost:5000/api/admin/overview/${email}`
+                    `https://motofix-server.vercel.app/api/admin/overview/${email}`
                 );
                 setOverview(res.data);
                 setError(null);

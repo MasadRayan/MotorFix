@@ -15,7 +15,7 @@ export default async function SingleServicepage({ params }) {
 
     let service = null;
     try {
-        const res = await axios.get(`http://localhost:5000/api/service/${id}`);
+        const res = await axios.get(`https://motofix-server.vercel.app/api/service/${id}`);
         service = res.data;
     } catch (err) {
 

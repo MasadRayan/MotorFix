@@ -6,7 +6,7 @@ import AllBooking from '../components/AllBooking';
 const AllBookingPage = async () => {
     const session = await getServerSession(authOptions);
     const email = session?.user?.email;
-    const res = await fetch(`http://localhost:5000/api/booking/admin/${email}`, {
+    const res = await fetch(`https://motofix-server.vercel.app/api/booking/admin/${email}`, {
         next: { revalidate: 0 }, 
     });
     const data = await res.json();

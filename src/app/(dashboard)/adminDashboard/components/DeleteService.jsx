@@ -16,7 +16,7 @@ const DeleteService = ({ id }) => {
     const handleDelete = async () => {
         toast.loading('Deleting...');
         try {
-            await axios.delete(`http://localhost:5000/api/service/admin/${email}/${serviceID}`);
+            await axios.delete(`https://motofix-server.vercel.app/api/service/admin/${email}/${serviceID}`);
             toast.dismiss();
             router.refresh();
             toast.success('Service Deleted');

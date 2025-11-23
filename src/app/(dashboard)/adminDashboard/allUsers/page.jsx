@@ -11,7 +11,7 @@ const ALLUsersPage = async () => {
 
     const email = session?.user?.email;
 
-    const res = await fetch(`http://localhost:5000/api/user/allUser/${email}`, {
+    const res = await fetch(`https://motofix-server.vercel.app/api/user/allUser/${email}`, {
         next: { revalidate: 0 }, 
     });
 

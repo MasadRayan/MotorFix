@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 
 const ServicesPage = async () => {
     
-    const res = await axios.get('http://localhost:5000/api/service');
+    const res = await axios.get('https://motofix-server.vercel.app/api/service');
     const data = res.data;
 
     return (

@@ -17,7 +17,7 @@ const NavBar = () => {
 
     try {
         const res = await axios.get(
-            `http://localhost:5000/api/user/role/${session.user.email}`
+            `https://motofix-server.vercel.app/api/user/role/${session.user.email}`
         );
 
         setRole(res.data.role);
@@ -117,7 +117,7 @@ const NavBar = () => {
                                                                         <button className='btn text-white bg-[#FF3811] '>Dashboard</button>
                                                                     </Link>
                                                                 ) : (
-                                                                    <Link href={'/userDashboard'}>
+                                                                    <Link href={'/userDashboard/userHome'}>
                                                                         <button className='btn text-white bg-[#FF3811]'>Dashboard</button>
                                                                     </Link>
                                                                 )

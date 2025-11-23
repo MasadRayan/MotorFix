@@ -15,7 +15,7 @@ const RegisterForm = () => {
         const password = e.target.password.value;
         const userInfo = { name, email, password, role: "user" };
 
-        const res = await axios.post("http://localhost:5000/api/user",
+        const res = await axios.post("https://motofix-server.vercel.app/api/user",
             userInfo
         );
         if (res.data.insertedId) {

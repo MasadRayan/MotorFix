@@ -15,7 +15,7 @@ export const authOptions = {
             },
             async authorize(credentials, req) {
                 console.log("From authoptions", credentials);
-                const res = await axios.post("http://localhost:5000/api/user/login", credentials);
+                const res = await axios.post("https://motofix-server.vercel.app/api/user/login", credentials);
                 const user = res.data;
 
                 if (user?.message) {
@@ -47,7 +47,7 @@ export const authOptions = {
                 const {providerAccountId, provider } = account;
                 const {email: user_email, image, name} = user;
                 const userInfo= {email:user_email, image, name, providerAccountId, provider, role: "user"};
-                const res = await axios.post("http://localhost:5000/api/user/social-login", userInfo);
+                const res = await axios.post("https://motofix-server.vercel.app/api/user/social-login", userInfo);
             }
             return true
         },

@@ -11,7 +11,7 @@ const DeleteBookingButton = ({ id }) => {
     const router  = useRouter();
     const handleBookingDelete = async () => {
         try {
-            await axios.delete(`http://localhost:5000/api/booking/${id}`,
+            await axios.delete(`https://motofix-server.vercel.app/api/booking/${id}`,
                 {
                     data : {
                         email: session?.user?.email

@@ -14,7 +14,7 @@ const MakeAdmin = ({ id }) => {
     const handleUpdate = async () => {
         toast.loading('Updating...');
         try {
-            await axios.patch(`http://localhost:5000/api/user/makeAdmin/${email}`, { userID });
+            await axios.patch(`https://motofix-server.vercel.app/api/user/makeAdmin/${email}`, { userID });
             toast.dismiss();
             toast.success('Admin Updated');
             router.refresh();
