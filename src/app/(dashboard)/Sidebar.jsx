@@ -24,6 +24,11 @@ const Sidebar = ({ role }) => {
                                 All Services
                             </button>
                         </Link>
+                        <Link href="/adminDashboard/allBookings">
+                            <button className='btn btn-outline w-full text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
+                                All Bookings
+                            </button>
+                        </Link>
                     </div>
 
 
