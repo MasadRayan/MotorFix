@@ -10,6 +10,10 @@ export default async function DashboardLayout({ children }) {
     const session = await getServerSession(authOptions);
     const email = session?.user?.email;
 
+    if (!session?.user?.email) {
+        redirect('/login');
+    }
+
     const getRole = await axios.get(`http://localhost:5000/api/user/role/${email}`);
     return (
         <div className="drawer lg:drawer-open">

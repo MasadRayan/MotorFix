@@ -1,3 +1,4 @@
+import LogOutBtn from '@/components/LogOutBtn';
 import Link from 'next/link';
 import React from 'react';
 
@@ -36,7 +37,7 @@ const Sidebar = ({ role }) => {
             ) : (
                 <>
                     <div className='flex flex-col justify-center gap-5 pl-5 w-full '>
-                        <Link href="/dashboard/userDashboard">
+                        <Link href="/userDashboard/userHome">
                             <button className='btn btn-outline w-full text-[#FF3811] hover:bg-[#FF3811] hover:text-white'>
                                 User Home
                             </button>
@@ -51,6 +52,10 @@ const Sidebar = ({ role }) => {
 
                 </>
             )}
+
+            <div className='flex flex-col justify-center gap-5 pl-5 w-full mt-5'>
+                <LogOutBtn></LogOutBtn>
+            </div>
         </div>
     );
 };

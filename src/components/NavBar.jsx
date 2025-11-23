@@ -113,7 +113,7 @@ const NavBar = () => {
                                                         <div className='absolute top-17 right-13 bg-white p-2 rounded-lg shadow-md'>
                                                             {
                                                                 role === 'admin' ? (
-                                                                    <Link href={'/adminDashboard'}>
+                                                                    <Link href={'/adminDashboard/adminHome'}>
                                                                         <button className='btn text-white bg-[#FF3811] '>Dashboard</button>
                                                                     </Link>
                                                                 ) : (
