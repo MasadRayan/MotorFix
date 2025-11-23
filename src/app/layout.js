@@ -28,6 +28,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <head>
+        <link rel="shortcut icon" href="/assets/logo.svg" type="image/x-icon" />
+      </head>
       <body
         className={`${inter.variable} antialiased`}
       >
