@@ -18,14 +18,14 @@ const AboutUs = () => {
         />
 
         {/* Overlapping smaller image */}
-        <div className="absolute -bottom-[100px] md:bottom-[-25px] md:right-[-30px] bg-white p-2 rounded-lg shadow-lg">
+        <div className="absolute -bottom-[110px] md:bottom-[-25px] md:right-[-30px] bg-white p-2 rounded-lg shadow-lg">
           <Image
             src="/assets/images/about_us/parts.jpg" 
             alt="Car tools"
             width={220}
             height={160}
             loading="eager"
-            className="rounded-md h-auto w-auto object-cover"
+            className="rounded-md h-36 w-auto object-cover"
           />
         </div>
       </div>
