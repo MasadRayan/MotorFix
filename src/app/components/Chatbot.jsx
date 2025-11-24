@@ -1,11 +1,20 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import { FaRobot } from "react-icons/fa6";
+import ChatbotModal from './ChatbotModal';
 
 const Chatbot = () => {
+    const [open, setOpen] = useState(false);
     return (
-        <div className='cursor-pointer bg-red-500 text-white px-4 py-4 rounded-full'>
-            <FaRobot size={30}/>
-        </div>
+        <>
+            <button
+                onClick={() => setOpen(!open)}
+                className='cursor-pointer bg-[#FF3811] text-white px-4 py-4 rounded-full'>
+                <FaRobot size={30} />
+
+            </button>
+            <ChatbotModal isOpen={open} onClose={() => setOpen(false)} />
+        </>
     );
 };
 
