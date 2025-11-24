@@ -5,16 +5,20 @@ import ContactInfo from "./components/ContactInfo";
 import WhyChooseUS from "./components/WhyChooseUS";
 import OurTeam from "./components/OurTeam";
 import ServiceSection from "./components/ServiceSection";
+import Chatbot from "./components/Chatbot";
 
 export default function Home() {
   return (
-    <div className="container mx-auto mt-10">
+    <div className="relative container mx-auto mt-10">
       <Banner></Banner>
       <AboutUs></AboutUs>
       <ServiceSection></ServiceSection>
       <ContactInfo></ContactInfo>
       <OurTeam></OurTeam>
       <WhyChooseUS></WhyChooseUS>
+      <div className="z-50 bottom-5 right-10 fixed">
+        <Chatbot></Chatbot>
+      </div>
     </div>
   );
 }
